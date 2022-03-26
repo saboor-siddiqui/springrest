@@ -19,16 +19,19 @@ public class MyController {
     public List<Course> getCourses(){
         return this.courseService.getCourses();
     }
+
     //get a specific course
     @GetMapping("/courses/{courseId}")
     public Course getCourse(@PathVariable String courseId){
         return this.courseService.getCourse(Long.parseLong(courseId));
     }
+
     //Adding a Course
     @PostMapping("/courses")
     public Course addCourses(@RequestBody Course course){
         return this.courseService.addCourse(course);
     }
+
     //Deleting a Course
     @DeleteMapping("/courses/{courseId}")
     public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId) {
@@ -40,6 +43,7 @@ public class MyController {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     //updating a course
     @PutMapping("/courses")
     public Course updateCourse(@RequestBody Course course){
